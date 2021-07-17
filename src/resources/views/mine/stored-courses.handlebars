@@ -2,13 +2,6 @@
     <h1>Quản lý khóa học</h1>
     <div class="d-flex justify-content-between my-4">
         <div class="d-flex align-items-center">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkbox-all">
-                <label class="form-check-label" for="checkbox-all">
-                    Chọn tất cả
-                </label>
-            </div>
-
             <select class="custom-select custom-select-sm select-all-options">
                 <option>-- Hành động --</option>
                 <option value="delete">Xóa</option>
@@ -30,7 +23,14 @@
     <table class="table mt-4 table-hover table-bordered">
         <thead>
             <tr class="d-flex">
-                <th class="col-2">#</th>
+                <th class="col-1">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkbox-all">
+                    </div>
+                </th>
+                <th class="col-1">ID
+                    {{{sortable '_id' _sort}}}
+                </th>
                 <th class="col-3">Tên khóa học
                     {{{sortable 'name' _sort}}}
                 </th>
@@ -46,11 +46,11 @@
         <tbody>
             {{#each courses}}
             <tr class="d-flex">
-                <td class="col-2">
+                <td class="col-1">
                     <input type="checkbox" name="coursesId" aria-label="Checkbox for following text input" />
-                    <span>
-                        {{sum @index 1}}
-                    </span>
+                </td>
+                <td class="col-1">
+                    {{!-- {{sum @index 1}} --}}
                 </td>
                 <td class="col-3">{{this.name}}</td>
                 <td class="col-3">{{this.level}}</td>
