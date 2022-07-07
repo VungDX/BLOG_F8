@@ -52,7 +52,6 @@ app.engine(
   })
 );
 app.set("view-engine", "handlebars");
-
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "resources", "views"));
 
